@@ -67,7 +67,8 @@ func MedianPiv(a []int) int {
 
 //QSorter is the quicksort implementation of Sorter interface.
 //It is of same type as its pivot function:
-// QSorter(MedianPiv).Sort([]int{1,2,3})
+//	QSorter(MedianPiv).Sort([]int{1,2,3})
+//
 type QSorter func([]int) int
 
 //Sort is implementation of Sorter interface

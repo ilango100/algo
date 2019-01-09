@@ -11,7 +11,7 @@ var a = rand.Perm(1000)
 func TestQSort(t *testing.T) {
 	arr := make([]int, len(a))
 	copy(arr, a)
-	QSort(arr, FirstPiv)
+	QSort(arr, MedianPiv)
 	e := len(arr) - 2
 	for i := 0; i < e; i++ {
 		if arr[i] > arr[i+1] {
@@ -20,7 +20,7 @@ func TestQSort(t *testing.T) {
 	}
 }
 
-func BenchmarkQSortMed(b *testing.B) {
+func BenchmarkQSort(b *testing.B) {
 	arr := make([]int, len(a))
 	copy(arr, a)
 	b.ResetTimer()
@@ -30,6 +30,9 @@ func BenchmarkQSortMed(b *testing.B) {
 }
 
 func BenchmarkQSortFirst(b *testing.B) {
+	if !testing.Verbose() {
+		b.SkipNow()
+	}
 	arr := make([]int, len(a))
 	copy(arr, a)
 	b.ResetTimer()
@@ -39,6 +42,9 @@ func BenchmarkQSortFirst(b *testing.B) {
 }
 
 func BenchmarkQSortLast(b *testing.B) {
+	if !testing.Verbose() {
+		b.SkipNow()
+	}
 	arr := make([]int, len(a))
 	copy(arr, a)
 	b.ResetTimer()
