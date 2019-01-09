@@ -1,9 +1,9 @@
 package algo
 
-//QSort is Quicksort implementation: https://en.wikipedia.org/wiki/Quicksort
+//QuickSort is Quicksort implementation: https://en.wikipedia.org/wiki/Quicksort
 //
 //The pivot function should return the index of pivot and not the value!
-func QSort(a []int, pivot func([]int) int) {
+func QuickSort(a []int, pivot func([]int) int) {
 	if len(a) <= 1 {
 		return
 	}
@@ -25,8 +25,8 @@ func QSort(a []int, pivot func([]int) int) {
 			i--
 		}
 	}
-	QSort(a[:p], pivot)
-	QSort(a[p+1:], pivot)
+	QuickSort(a[:p], pivot)
+	QuickSort(a[p+1:], pivot)
 }
 
 //LastPiv always returns last element as pivot, i.e., len(a)-1
@@ -65,13 +65,13 @@ func MedianPiv(a []int) int {
 	}
 }
 
-//QSorter is the quicksort implementation of Sorter interface.
+//QuickSorter is the quicksort implementation of Sorter interface.
 //It is of same type as its pivot function:
-//	QSorter(MedianPiv).Sort([]int{1,2,3})
+//	QuickSorter(MedianPiv).Sort([]int{1,2,3})
 //
-type QSorter func([]int) int
+type QuickSorter func([]int) int
 
 //Sort is implementation of Sorter interface
-func (q QSorter) Sort(a []int) {
-	QSort(a, q)
+func (q QuickSorter) Sort(a []int) {
+	QuickSort(a, q)
 }
