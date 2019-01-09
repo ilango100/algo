@@ -1,12 +1,23 @@
 package algo
 
 import (
+	"flag"
+	"fmt"
 	"math/rand"
+	"os"
 	"sort"
 	"testing"
 )
 
-var a = rand.Perm(1000)
+var a []int
+
+func TestMain(m *testing.M) {
+	n := flag.Uint("n", 1000, "Number of inputs")
+	fmt.Println("Main func")
+	flag.Parse()
+	a = rand.Perm(int(*n))
+	os.Exit(m.Run())
+}
 
 func TestQSort(t *testing.T) {
 	arr := make([]int, len(a))
