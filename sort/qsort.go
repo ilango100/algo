@@ -10,17 +10,11 @@ func QuickSort(a []int, pivot func([]int) int) {
 	p := pivot(a)
 	for i := 0; i < len(a); i++ {
 		if a[p] < a[i] && p > i {
-			tmp := a[i]
-			a[i] = a[p-1]
-			a[p-1] = a[p]
-			a[p] = tmp
+			a[i], a[p-1], a[p] = a[p-1], a[p], a[i]
 			p--
 			i--
 		} else if a[p] > a[i] && p < i {
-			tmp := a[i]
-			a[i] = a[p+1]
-			a[p+1] = a[p]
-			a[p] = tmp
+			a[i], a[p+1], a[p] = a[p+1], a[p], a[i]
 			p++
 			i--
 		}
