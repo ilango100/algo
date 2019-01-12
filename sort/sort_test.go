@@ -2,7 +2,6 @@ package sort
 
 import (
 	"flag"
-	"fmt"
 	"math/rand"
 	"os"
 	"testing"
@@ -14,7 +13,6 @@ var n uint
 func TestMain(m *testing.M) {
 	flag.UintVar(&n, "n", 1000, "Number of inputs")
 	flag.Parse()
-	fmt.Printf("N: %d\n", n)
 	a = rand.Perm(int(n))
 	os.Exit(m.Run())
 }
