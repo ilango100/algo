@@ -68,7 +68,7 @@ func MedianPiv(a []int) int {
 //QuickSorter is the quicksort implementation of Sorter interface.
 //It is of same type as its pivot function:
 //	QuickSorter(MedianPiv).Sort([]int{1,2,3})
-//
+//Don't use inline slices, since you cannot retrieve it back.
 type QuickSorter func([]int) int
 
 //Sort is implementation of Sorter interface
