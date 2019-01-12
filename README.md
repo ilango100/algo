@@ -11,14 +11,15 @@ This repo provides implementation of basic algorithms in go.
 - Quicksort - [Wiki](https://en.wikipedia.org/wiki/Quicksort)
 
 ```
-$ go test -bench . -benchmem -args -n=10000
+$ go test -benchmem -bench . ./... -args n=10000
 goos: windows
 goarch: amd64
-pkg: github.com/ilango100/algo
-BenchmarkQuickSort-4                5000            250933 ns/op               0 B/op          0 allocs/op
-BenchmarkGoSort-4                   2000            850736 ns/op              32 B/op          1 allocs/op
+pkg: github.com/ilango100/algo/sort
+BenchmarkQuickSort-4               20000             56947 ns/op               0 B/op          0 allocs/op
+BenchmarkGoSort-4                  10000            163263 ns/op              32 B/op          1 allocs/op
 PASS
-ok      github.com/ilango100/algo       3.310s
+ok      github.com/ilango100/algo/sort  4.141s
+
 ```
 
 This is a **Work in Progress**
