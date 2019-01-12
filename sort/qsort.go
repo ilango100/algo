@@ -1,4 +1,4 @@
-package algo
+package sort
 
 //QuickSort is Quicksort implementation: https://en.wikipedia.org/wiki/Quicksort
 //

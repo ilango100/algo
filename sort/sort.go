@@ -1,14 +1,14 @@
-package algo
+package sort
 
 //Sorter interface provides sorting function
 type Sorter interface {
 	Sort([]int)
 }
 
-//SortFunc constructs Sorter from a function
-type SortFunc func([]int)
+//Func constructs Sorter from a function
+type Func func([]int)
 
 //Sort implements Sorter interface
-func (s SortFunc) Sort(a []int) {
+func (s Func) Sort(a []int) {
 	s(a)
 }
