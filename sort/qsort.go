@@ -23,18 +23,18 @@ func QuickSort(a []int, pivot func([]int) int) {
 	QuickSort(a[p+1:], pivot)
 }
 
-//LastPiv always returns last element as pivot, i.e., len(a)-1
-func LastPiv(a []int) int {
+//PivotLast always returns last element as pivot, i.e., len(a)-1
+func PivotLast(a []int) int {
 	return len(a) - 1
 }
 
-//FirstPiv always returns first element as pivot, i.e., 0
-func FirstPiv(a []int) int {
+//PivotFirst always returns first element as pivot, i.e., 0
+func PivotFirst(a []int) int {
 	return 0
 }
 
-//MedianPiv takes the median of first, middle and last element of the slice
-func MedianPiv(a []int) int {
+//PivotMedian takes the median of first, middle and last element of the slice
+func PivotMedian(a []int) int {
 	m := len(a) / 2
 	l := len(a) - 1
 	b := a[0]
