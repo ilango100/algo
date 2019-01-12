@@ -24,6 +24,15 @@ func testFunc(t *testing.T, f Func) {
 	testContainsAll(t, arr)
 }
 
+func benchFunc(b *testing.B, f Func) {
+	arr := copyArr()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		f(arr)
+	}
+
+}
+
 func testSorted(t *testing.T, arr []int) {
 	e := len(a) - 2
 	for i := 0; i < e; i++ {

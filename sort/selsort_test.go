@@ -7,9 +7,5 @@ func TestSelectionSort(t *testing.T) {
 }
 
 func BenchmarkSelectionSort(b *testing.B) {
-	arr := copyArr()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		SelectionSort(arr)
-	}
+	benchFunc(b, SelectionSort)
 }
