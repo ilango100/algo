@@ -29,6 +29,7 @@ func testSorted(t *testing.T, arr []int) {
 	for i := 0; i < e; i++ {
 		if arr[i] > arr[i+1] {
 			t.Errorf("%d [%d] came before %d [%d]:", arr[i], i, arr[i+1], i+1)
+			return
 		}
 	}
 }
