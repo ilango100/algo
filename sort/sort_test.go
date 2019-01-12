@@ -17,6 +17,13 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
+func testFunc(t *testing.T, f Func) {
+	arr := copyArr()
+	f(arr)
+	testSorted(t, arr)
+	testContainsAll(t, arr)
+}
+
 func testSorted(t *testing.T, arr []int) {
 	e := len(a) - 2
 	for i := 0; i < e; i++ {
