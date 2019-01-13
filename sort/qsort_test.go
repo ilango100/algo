@@ -11,6 +11,20 @@ func TestQuickSort(t *testing.T) {
 	testContainsAll(t, arr)
 }
 
+func TestQuickSortFirst(t *testing.T) {
+	arr := copyArr()
+	QuickSort(arr, PivotFirst)
+	testSorted(t, arr)
+	testContainsAll(t, arr)
+}
+
+func TestQuickSortLast(t *testing.T) {
+	arr := copyArr()
+	QuickSort(arr, PivotLast)
+	testSorted(t, arr)
+	testContainsAll(t, arr)
+}
+
 func BenchmarkSortQuick(b *testing.B) {
 	arr := copyArr()
 	b.ResetTimer()
