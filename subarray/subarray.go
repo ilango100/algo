@@ -58,3 +58,25 @@ func MaxSumDC(a []int) (maxSum int, lo int, hi int) {
 	}
 	return cs, ci, cj
 }
+
+//MaxSumKadane calculates the maximum subarray of the given array using Kadane's Algorithm:
+//It runs in O(n)
+func MaxSumKadane(a []int) (maxSum int, lo int, hi int) {
+	maxSum = ninf
+	isum := ninf
+	ilo := 0
+	for i := range a {
+		if a[i] > isum+a[i] {
+			ilo = i
+			isum = a[i]
+		} else {
+			isum += a[i]
+		}
+		if isum > maxSum {
+			lo = ilo
+			hi = i
+			maxSum = isum
+		}
+	}
+	return maxSum, lo, hi
+}

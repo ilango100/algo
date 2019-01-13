@@ -23,8 +23,18 @@ func TestMain(m *testing.M) {
 func TestSubarrayDC(t *testing.T) {
 	s, l, h := MaxSumBruteForce(a)
 	ss, ll, hh := MaxSumDC(a)
-	if l != ll && h != hh {
+	//Check only sum since there can be multiple subarrays
+	if s != ss {
 		t.Errorf("Brute-Force: (%d, %d, sum: %d) , DC: (%d, %d, sum: %d)", l, h, s, ll, hh, ss)
+	}
+}
+
+func TestSubarrayKadane(t *testing.T) {
+	s, l, h := MaxSumBruteForce(a)
+	ss, ll, hh := MaxSumKadane(a)
+	//Check only sum since there can be multiple subarrays
+	if s != ss {
+		t.Errorf("Brute-Force: (%d, %d, sum: %d) , Kadane: (%d, %d, sum: %d)", l, h, s, ll, hh, ss)
 	}
 }
 
@@ -37,5 +47,11 @@ func BenchmarkSubarrayBruteForce(b *testing.B) {
 func BenchmarkSubarrayDC(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		MaxSumDC(a)
+	}
+}
+
+func BenchmarkSubarrayKadane(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		MaxSumKadane(a)
 	}
 }
