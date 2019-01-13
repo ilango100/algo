@@ -6,6 +6,6 @@ func TestInsertionSort(t *testing.T) {
 	testFunc(t, InsertionSort)
 }
 
-func BenchmarkInsertionSort(b *testing.B) {
+func BenchmarkSortInsertion(b *testing.B) {
 	benchFunc(b, InsertionSort)
 }

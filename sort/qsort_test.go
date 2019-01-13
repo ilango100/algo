@@ -1,7 +1,6 @@
 package sort
 
 import (
-	"sort"
 	"testing"
 )
 
@@ -12,7 +11,7 @@ func TestQuickSort(t *testing.T) {
 	testContainsAll(t, arr)
 }
 
-func BenchmarkQuickSort(b *testing.B) {
+func BenchmarkSortQuick(b *testing.B) {
 	arr := copyArr()
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
@@ -20,7 +19,7 @@ func BenchmarkQuickSort(b *testing.B) {
 	}
 }
 
-func BenchmarkQuickSortFirst(b *testing.B) {
+func BenchmarkSortQuickFirst(b *testing.B) {
 	if !testing.Verbose() {
 		b.SkipNow()
 	}
@@ -31,7 +30,7 @@ func BenchmarkQuickSortFirst(b *testing.B) {
 	}
 }
 
-func BenchmarkQuickSortLast(b *testing.B) {
+func BenchmarkSortQuickLast(b *testing.B) {
 	if !testing.Verbose() {
 		b.SkipNow()
 	}
@@ -39,13 +38,5 @@ func BenchmarkQuickSortLast(b *testing.B) {
 	b.ResetTimer()
 	for i := 0; i < b.N; i++ {
 		QuickSort(arr, PivotLast)
-	}
-}
-
-func BenchmarkGoSort(b *testing.B) {
-	arr := copyArr()
-	b.ResetTimer()
-	for i := 0; i < b.N; i++ {
-		sort.Ints(arr)
 	}
 }

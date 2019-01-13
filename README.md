@@ -17,12 +17,12 @@ $ go test -benchmem -bench . ./...
 goos: windows
 goarch: amd64
 pkg: github.com/ilango100/algo/sort
-BenchmarkInsertionSort-4            3000            362124 ns/op               0 B/op          0 allocs/op
-BenchmarkQuickSort-4              100000             20965 ns/op               0 B/op          0 allocs/op
-BenchmarkGoSort-4                  20000             72293 ns/op              32 B/op          1 allocs/op
-BenchmarkSelectionSort-4            3000            518684 ns/op               0 B/op          0 allocs/op
+BenchmarkSortInsertion-4            2000            917046 ns/op               0 B/op          0 allocs/op
+BenchmarkSortQuick-4               30000             46477 ns/op               0 B/op          0 allocs/op
+BenchmarkSortSelection-4            1000           1045234 ns/op               0 B/op          0 allocs/op
+BenchmarkSortGo-4                  10000            145211 ns/op              32 B/op          1 allocs/op
 PASS
-ok      github.com/ilango100/algo/sort  7.585s
+ok      github.com/ilango100/algo/sort  7.232s
 ```
 
 This is a **Work in Progress**

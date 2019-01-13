@@ -4,6 +4,7 @@ import (
 	"flag"
 	"math/rand"
 	"os"
+	"sort"
 	"testing"
 )
 
@@ -15,6 +16,14 @@ func TestMain(m *testing.M) {
 	flag.Parse()
 	a = rand.Perm(int(n))
 	os.Exit(m.Run())
+}
+
+func BenchmarkSortGo(b *testing.B) {
+	arr := copyArr()
+	b.ResetTimer()
+	for i := 0; i < b.N; i++ {
+		sort.Ints(arr)
+	}
 }
 
 func testFunc(t *testing.T, f Func) {
