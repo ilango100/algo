@@ -21,15 +21,21 @@ func TestMain(m *testing.M) {
 }
 
 func TestSubarrayDC(t *testing.T) {
-	l, h := MaxSumBruteForce(a)
-	ll, hh := MaxSumDC(a)
+	s, l, h := MaxSumBruteForce(a)
+	ss, ll, hh := MaxSumDC(a)
 	if l != ll && h != hh {
-		t.Errorf("Brute-Force: (%d, %d), DC: (%d, %d)", l, h, ll, hh)
+		t.Errorf("Brute-Force: (%d, %d, sum: %d) , DC: (%d, %d, sum: %d)", l, h, s, ll, hh, ss)
 	}
 }
 
 func BenchmarkSubarrayBruteForce(b *testing.B) {
 	for i := 0; i < b.N; i++ {
 		MaxSumBruteForce(a)
+	}
+}
+
+func BenchmarkSubarrayDC(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		MaxSumDC(a)
 	}
 }
