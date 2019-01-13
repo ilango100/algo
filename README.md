@@ -3,6 +3,9 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/ilango100/algo)](https://goreportcard.com/report/github.com/ilango100/algo)
 [![GoDoc](https://godoc.org/github.com/ilango100/algo?status.svg)](https://godoc.org/github.com/ilango100/algo)
 
+[![Build Status](https://travis-ci.org/ilango100/algo.svg?branch=master)](https://travis-ci.org/ilango100/algo)
+[![Coverage Status](https://coveralls.io/repos/github/ilango100/algo/badge.svg?branch=master)](https://coveralls.io/github/ilango100/algo?branch=master)
+
 This repo provides implementation of basic algorithms in go.
 
 ## Algorithms implemented
