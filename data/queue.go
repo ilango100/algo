@@ -5,7 +5,7 @@ type Queue struct {
 	arr []int
 }
 
-/*Enqueue adds ("push") a new element in the queue.
+/*Enqueue adds a new element in the queue.
 Returns the same Queue for chaining, i.e: q.Enqueue(1).Enqueue(2) */
 func (q *Queue) Enqueue(i int) *Queue {
 	q.arr = append(q.arr, i)

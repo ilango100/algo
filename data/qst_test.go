@@ -14,3 +14,14 @@ func TestQueue(t *testing.T) {
 		t.Errorf("Expected 2, got %d", d)
 	}
 }
+
+func TestStack(t *testing.T) {
+	s := Stack{}
+	if d := s.Push(0).Push(1).Push(2).Pop(); d != 2 {
+		t.Errorf("Expected 2, got %d", d)
+	} else if d = s.Pop(); d != 1 {
+		t.Errorf("Expected 1, got %d", d)
+	} else if d = s.Pop(); d != 0 {
+		t.Errorf("Expected 0, got %d", d)
+	}
+}
