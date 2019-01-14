@@ -47,7 +47,6 @@ func (h Heap) MaxHeapify(i int) {
 	} else {
 		if h[l] > h[i] {
 			h.Swap(i, l)
-			h.MaxHeapify(l)
 		}
 	}
 }
@@ -70,15 +69,14 @@ func (h Heap) MinHeapify(i int) {
 	if r, ok := h.right(i); ok {
 		if h[l] < h[i] && h[l] < h[r] {
 			h.Swap(i, l)
-			h.MaxHeapify(l)
+			h.MinHeapify(l)
 		} else if h[r] < h[i] && h[r] < h[l] {
 			h.Swap(i, r)
-			h.MaxHeapify(r)
+			h.MinHeapify(r)
 		}
 	} else {
 		if h[l] < h[i] {
 			h.Swap(i, l)
-			h.MaxHeapify(l)
 		}
 	}
 }
