@@ -12,33 +12,31 @@ This repo provides implementation of basic algorithms in go.
 
 ### Sorting
 - Quicksort - [Wiki](https://en.wikipedia.org/wiki/Quicksort)
+- Heapsort - [Wiki](https://en.wikipedia.org/wiki/Heapsort)
 - Selection Sort - [Wiki](https://en.wikipedia.org/wiki/Selection_sort)
 - Insertion Sort - [Wiki](https://en.wikipedia.org/wiki/Insertion_sort)
+```
+BenchmarkSortHeap-4                20000             68416 ns/op               0 B/op          0 allocs/op
+BenchmarkSortInsertion-4            5000            254319 ns/op               0 B/op          0 allocs/op
+BenchmarkSortQuick-4              100000             19747 ns/op               0 B/op          0 allocs/op
+BenchmarkSortSelection-4            3000            489689 ns/op               0 B/op          0 allocs/op
+BenchmarkSortGo-4                  20000             66971 ns/op              32 B/op          1 allocs/op
+```
 
 ### Maximum Subarray - [Wiki](https://en.wikipedia.org/wiki/Maximum_subarray_problem)
 - Brute Force
 - Divide, Conquer & Combine (DC)
 - Kadane's Algorithm
-
 ```
-$ go test -benchmem -bench . ./...
-goos: windows
-goarch: amd64
-pkg: github.com/ilango100/algo/sort
-BenchmarkSortInsertion-4            5000            329518 ns/op               0 B/op          0 allocs/op
-BenchmarkSortQuick-4              100000             19049 ns/op               0 B/op          0 allocs/op
-BenchmarkSortSelection-4            3000            483373 ns/op               0 B/op          0 allocs/op
-BenchmarkSortGo-4                  20000             66123 ns/op              32 B/op          1 allocs/op
-PASS
-ok      github.com/ilango100/algo/sort  7.624s
-goos: windows
-goarch: amd64
-pkg: github.com/ilango100/algo/subarray
-BenchmarkSubarrayBruteForce-4                 20          73403570 ns/op               0 B/op          0 allocs/op
-BenchmarkSubarrayDC-4                     100000             16256 ns/op               0 B/op          0 allocs/op
+BenchmarkSubarrayBruteForce-4                 20          74001950 ns/op               0 B/op          0 allocs/op
+BenchmarkSubarrayDC-4                     100000             16306 ns/op               0 B/op          0 allocs/op
 BenchmarkSubarrayKadane-4                1000000              1371 ns/op               0 B/op          0 allocs/op
-PASS
-ok      github.com/ilango100/algo/subarray      5.162s
 ```
+
+## Datastructures
+
+- Queue - [Wiki](https://en.wikipedia.org/wiki/Queue_(abstract_data_type))
+- Stack - [Wiki](https://en.wikipedia.org/wiki/Stack_(abstract_data_type))
+- Binary Heap - [Wiki](https://en.wikipedia.org/wiki/Binary_heap)
 
 This is a **Work in Progress**
