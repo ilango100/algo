@@ -15,10 +15,7 @@ func CountingSort(b []int) {
 	for i := range a {
 		c[a[i]]++
 	}
-	for i := range c {
-		if i == 0 {
-			continue
-		}
+	for i := 1; i < len(c); i++ {
 		c[i] = c[i] + c[i-1]
 	}
 	for i := len(a) - 1; i >= 0; i-- {
