@@ -15,9 +15,10 @@ func (h Heap) right(i int) (int, bool) {
 	return r, r < len(h)
 }
 
-func (h Heap) parent(i int) int {
+//Not needed right now
+/*func (h Heap) parent(i int) int {
 	return (i - 1) >> 1
-}
+}*/
 
 func (h Heap) lastparent() int {
 	return len(h)>>1 - 1

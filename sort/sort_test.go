@@ -18,6 +18,11 @@ func TestMain(m *testing.M) {
 	os.Exit(m.Run())
 }
 
+func TestSorterInterface(t *testing.T) {
+	Func(InsertionSort).Sort([]int{1, 2, 3, 4, 5})
+	QuickSorter(PivotLast).Sort([]int{1, 2, 4, 5, 3})
+}
+
 func BenchmarkSortGo(b *testing.B) {
 	arr := copyArr()
 	b.ResetTimer()
