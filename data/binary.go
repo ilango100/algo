@@ -1,18 +1,16 @@
 package data
 
-/*A BinNode represents a single node in Binary Tree.*/
-type BinNode struct {
+/*A BinTree represents a Binary Tree.*/
+type BinTree struct {
 	Key   int
-	Left  *BinNode
-	Right *BinNode
-	Par   *BinNode
+	Value interface{}
+	Left  *BinTree
+	Right *BinTree
+	Par   *BinTree
 }
 
-/*BinTree represents  Binary Tree. It points to the root *BinNode.*/
-type BinTree *BinNode
-
 /*Search searches through the Binary Tree and returns the node.*/
-func (b *BinNode) Search(k int) *BinNode {
+func (b *BinTree) Search(k int) *BinTree {
 	if b.Key == k {
 		return b
 	}
@@ -28,14 +26,13 @@ func (b *BinNode) Search(k int) *BinNode {
 }
 
 /*SearchIt searches through the Binary Tree iteratively, instead of recursively.*/
-func (b *BinNode) SearchIt(k int) *BinNode {
-	var x *BinNode
-	for x = b; x != nil && x.Key != k; {
-		if k < x.Key {
-			x = x.Left
+func (b *BinTree) SearchIt(k int) *BinTree {
+	for b != nil && b.Key != k {
+		if k < b.Key {
+			b = b.Left
 			continue
 		}
-		x = x.Right
+		b = b.Right
 	}
-	return x
+	return b
 }
