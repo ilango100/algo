@@ -2,11 +2,11 @@ package data
 
 /*A BinTree represents a Binary Tree.*/
 type BinTree struct {
-	Key   int
-	Value interface{}
-	Left  *BinTree
-	Right *BinTree
-	Par   *BinTree
+	Key    int
+	Value  interface{}
+	Left   *BinTree
+	Right  *BinTree
+	Parent *BinTree
 }
 
 /*Search searches through the Binary Tree and returns the node.*/
@@ -35,4 +35,44 @@ func (b *BinTree) SearchIt(k int) *BinTree {
 		b = b.Right
 	}
 	return b
+}
+
+/*Min returns the minimum value from the Binary Tree.*/
+func (b *BinTree) Min() *BinTree {
+	for b.Left != nil {
+		b = b.Left
+	}
+	return b
+}
+
+/*Max returns the maximum value from the Binary Tree.*/
+func (b *BinTree) Max() *BinTree {
+	for b.Right != nil {
+		b = b.Right
+	}
+	return b
+}
+
+/*Insert inserts a key, value pair into the Binary Tree and returns the respective Node.*/
+func (b *BinTree) Insert(key int, value interface{}) *BinTree {
+	if key < b.Key {
+		if b.Left == nil {
+			b.Left = &BinTree{
+				Key:    key,
+				Value:  value,
+				Parent: b,
+			}
+			return b.Left
+		}
+		return b.Left.Insert(key, value)
+	}
+	if b.Right == nil {
+		b.Right = &BinTree{
+			Key:    key,
+			Value:  value,
+			Parent: b,
+		}
+		return b.Right
+	}
+	return b.Right.Insert(key, value)
 }
