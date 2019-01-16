@@ -9,6 +9,21 @@ type BinTree struct {
 	Parent *BinTree
 }
 
+func (b *BinTree) successor() *BinTree {
+	if b.Right != nil {
+		return b.Right.Min()
+	}
+	if b.Parent == nil {
+		return nil
+	}
+	par := b.Parent
+	for par != nil && par.Right != nil && par.Right.Key == b.Key {
+		b = par
+		par = par.Parent
+	}
+	return par
+}
+
 /*Search searches through the Binary Tree and returns the node.*/
 func (b *BinTree) Search(k int) *BinTree {
 	if b.Key == k {
@@ -75,4 +90,10 @@ func (b *BinTree) Insert(key int, value interface{}) *BinTree {
 		return b.Right
 	}
 	return b.Right.Insert(key, value)
+}
+
+/*Delete deletes a key, with its node from the Binary Tree.
+Yet to be implemented*/
+func (b *BinTree) Delete(key int) {
+	//TODO: Implement delete function
 }
